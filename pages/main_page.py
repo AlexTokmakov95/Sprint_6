@@ -22,16 +22,9 @@ class MainPage(BasePage):
     def click_faq_question(self, question_number: int):
         elems = self.find_elements(MainPageLocators.question_buttons, 10)
         target_elem = elems[question_number]
-        self.driver.execute_script("arguments[0].scrollIntoView(true);", target_elem)
-        time.sleep(0.5) 
+        self.scroll_to_element(target_elem)
+        self.wait_before_click(target_elem)  
         return target_elem.click()  
-
-    @allure.step('Переключиться на вкладку браузера')
-    def switch_window(self, window_number: int = 1):
-        return self.driver.switch_to.window(self.driver.window_handles[window_number])
-
-    def wait_url_until_not_about_blank(self, time=10):
-        return WebDriverWait(self.driver, time).until_not(EC.url_to_be('about:blank'))
 
     @allure.step('Перейти на страницу ЯндексДзен')
     def click_yandex_button(self):

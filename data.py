@@ -14,6 +14,37 @@ class MainPageAnswers:
     answer7 = "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои."
     answer8 = "Да, обязательно. Всем самокатов! И Москве, и Московской области."
 
+class DataSets:
+    def data_set(self):
+        return {
+            'data_set': {
+                'first_name': 'Иван',
+                'last_name': 'Иванович',
+                'address': 'Иванова улица',
+                'subway_name': 'Беляево',
+                'telephone_number': '74546524958',
+                'date': '15.05.2024',
+                'rental_period': 0,
+                'color': [0],
+                'comment_for_courier': 'Жду возле аптеки',
+                'description': 'Корректные данные'  
+            }} 
+
+    def data_set2(self):
+        return {
+            'data_set': {
+                'first_name': 'Тест',
+                'last_name': 'Тестович',
+                'address': 'Тестовая улица',
+                'subway_name': 'Лубянка',
+                'telephone_number': '79194136055',
+                'date': '24.04.2026',
+                'rental_period': 1,
+                'color': [0, 1],
+                'comment_for_courier': 'Очень жду',
+                'description': 'Корректные данные'  
+            }} 
+
 
 
 

@@ -1,6 +1,7 @@
 import allure
 from data import Urls
 from pages.main_page import MainPage
+from pages.base_page import BasePage
 
 
 class TestBasePage:
@@ -13,9 +14,10 @@ class TestBasePage:
         home_page.go_to_site()
         home_page.click_cookie_accept()
         home_page.click_yandex_button()
-        home_page.switch_window(1)
-        home_page.wait_url_until_not_about_blank()
-        current_url = home_page.current_url()
+        base_page = BasePage(driver)
+        base_page.switch_window(1)
+        base_page.wait_url_until_not_about_blank()
+        current_url = base_page.current_url()
 
         assert Urls.url_dzen in current_url
 

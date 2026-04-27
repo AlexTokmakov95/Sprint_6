@@ -1,6 +1,7 @@
 import pytest
 import allure
 from pages.main_page import MainPage
+from pages.base_page import BasePage
 from data import MainPageAnswers
 from locators.main_page_locators import MainPageLocators
 
@@ -24,9 +25,11 @@ class TestMainPage:
     )
     def test_accardion_click_question_show_answer(self, driver, question, answer, expected_answer):
         ya_scooter_home_page = MainPage(driver)
+        ya_scooter_base_page = BasePage(driver)
         ya_scooter_home_page.go_to_site()
         ya_scooter_home_page.click_cookie_accept()
         ya_scooter_home_page.click_faq_question(question_number=question)
+        ya_scooter_base_page.wait_before_assert(MainPageLocators.answer_text(answer_number=answer), 10)
         answer = ya_scooter_home_page.find_element(MainPageLocators.answer_text(answer_number=answer))
 
         assert answer.is_displayed() and answer.text == expected_answer, 'Ответ на вопрос не совпадает с ожидаемым значением '
